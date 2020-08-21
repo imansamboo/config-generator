@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CustomTemplate{% endblock %}
+
+{% block body %}
+    <h1>Edit CustomTemplate</h1>
+
+    {{ include('custom_template/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('custom_template_index') }}">back to list</a>
+
+    {{ include('custom_template/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CustomTemplate{% endblock %}
+
+{% block body %}
+    <h1>Create new CustomTemplate</h1>
+
+    {{ include('custom_template/_form.html.twig') }}
+
+    <a href="{{ path('custom_template_index') }}">back to list</a>
+{% endblock %}

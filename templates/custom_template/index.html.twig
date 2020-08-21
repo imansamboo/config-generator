@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CustomTemplate index{% endblock %}
+
+{% block body %}
+    <h1>CustomTemplate index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>File_path</th>
+                <th>Content</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for custom_template in custom_templates %}
+            <tr>
+                <td>{{ custom_template.id }}</td>
+                <td>{{ custom_template.name }}</td>
+                <td>{{ custom_template.filePath }}</td>
+                <td>{{ custom_template.content }}</td>
+                <td>{{ custom_template.createdAt ? custom_template.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ custom_template.updatedAt ? custom_template.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('custom_template_show', {'id': custom_template.id}) }}">show</a>
+                    <a href="{{ path('custom_template_edit', {'id': custom_template.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('custom_template_new') }}">Create new</a>
+{% endblock %}
